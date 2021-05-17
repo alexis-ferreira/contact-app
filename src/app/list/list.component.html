@@ -1,1 +1,31 @@
-<p>list works!</p>
+<div class="container-menu d-flex justify-content-between my-1">
+    <h2>{{contacts.length}} contacts</h2>
+    <div class="container-btn d-flex">
+        <button class="btn btn-outline-secondary">Grille</button>
+        <button class="btn btn-outline-info ms-2">Trier par nom</button>
+        <button class="btn btn-dark ms-2">+ Ajouter</button>
+    </div>
+</div>
+
+<!-- CHAMPS DE RECHECHE DE CONTACT -->
+
+<input type="text" class="form-control" placeholder="Rechercher un contact" #searchBar (keyup)="searchContact(searchBar.value)">
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
+        <!-- BLOC GAUCHE -->
+        <span>
+            <button (click)='deleteContact(contact)' class="btn btn-light">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        {{contact.first}} {{contact.last}} 
+        </span>
+        <!-- BLOC DROITE -->
+        <span>
+            Ajouté le 17/05/2021
+            <button class="btn btn-light">
+                <i class="fas fa-star"></i>
+            </button>
+        </span>
+    </li>
+</ul>
