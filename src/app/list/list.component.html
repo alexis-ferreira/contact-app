@@ -24,7 +24,7 @@
         <span>
             Ajouté le 17/05/2021
             <button (click)="setFav(contact)" class="btn btn-light">
-                <i class="far fa-star"></i>
+                <i [style.color]="getColor(contact)" class="far fa-star"></i>
             </button>
         </span>
     </li>
