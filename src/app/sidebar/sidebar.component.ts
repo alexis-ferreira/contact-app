@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  // Propriété d'affichage
+  favorites = [];
 
-  ngOnInit(): void {
+
+  constructor(private contactService: ContactService) {
+
+  }
+
+  ngOnInit(){
+
+    // La méthode subscribe du subject fav$
+      // -> va rééxecuter sa fonction callback ( en paramètre ) à chaque fois que la donnée dans fv$ va changer
+    this.contactService.fav$.subscribe( favs => this.favorites = favs )
+
   }
 
 }

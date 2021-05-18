@@ -1,1 +1,13 @@
-<p>sidebar works!</p>
+<div class="container my-2">
+    <h2>Favoris</h2>
+</div>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between bg-light" *ngFor="let favorite of favorites">
+        {{favorite.first + ' ' + favorite.last}}
+        <span>
+            <i class="far fa-user-circle text-warning"></i>
+            &nbsp;
+            <i class="fas fa-chevron-right"></i>
+        </span>
+    </li>
+</ul>
