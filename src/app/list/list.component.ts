@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  dbContacts;
   contacts;
 
   constructor() { }
@@ -14,29 +15,40 @@ export class ListComponent implements OnInit {
   ngOnInit(){
     // Le ngOnInit est une méthode du cycle de vie d'un component
 
-    this.contacts = [
+    this.dbContacts = [
       {first: 'Steve', last: 'Jobs'},
       {first: 'Bill', last: 'Gates'},
       {first: 'Jeff', last: 'Bezos'},
       {first: 'Tim', last: 'Cook'},
       {first: 'Elon', last: 'Musk'},
       {first: 'Mark', last: 'Zuckerberg'}
-    ]
+    ];
+
+    this.contacts = [...this.dbContacts]
   } // END OF OnInit
 
   deleteContact(contact){
-    console.log(contact);
-    // 1 Récuperer l'index du contact dans le tableau
+    // console.log(contact);
+    if(confirm('Voulez vous vraiment supprimer cet utilisateur ?')){
+      // 1 Récuperer l'index du contact dans le tableau
     const index = this.contacts.indexOf(contact);
-    console.log('index :', index);
+    // console.log('index :', index);
 
     // 2 Utiliser la méthode splice
     this.contacts.splice(index,1);
     // array.splice(index, 1) nombre d'élément à suprimer
+    }
   }
 
   searchContact(userInput){
-    console.log(userInput);
-    this.contacts.filter (contact => contact.first.includes(userInput));
+    // console.log(userInput);
+    // array.filter( (item) => item.first.includes(userInput) )
+    userInput = userInput.toLowerCase();
+    this.contacts = this.dbContacts.filter(
+      (contact) =>
+      contact.first.toLowerCase().includes(userInput) ||
+      contact.last.toLowerCase().includes(userInput) ||
+      (contact.first.toLowerCase() + ' ' + contact.last.toLowerCase()).includes(userInput) ||
+      (contact.last.toLowerCase() + ' ' + contact.first.toLowerCase()).includes(userInput))
   }
 } // END OF CLASS
