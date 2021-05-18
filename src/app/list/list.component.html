@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<!-- CHAMPS DE RECHECHE DE CONTACT -->
+<!-- CHAMPS RECHERCHE DE CONTACT -->
 
 <input type="text" class="form-control" placeholder="Rechercher un contact" #searchBar (keyup)="searchContact(searchBar.value)">
 
@@ -23,7 +23,7 @@
         <!-- BLOC DROITE -->
         <span>
             Ajouté le 17/05/2021
-            <button class="btn btn-light">
+            <button (click)="setFav(contact)" class="btn btn-light">
                 <i class="far fa-star"></i>
             </button>
         </span>
