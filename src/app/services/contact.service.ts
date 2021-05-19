@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getMaxListeners } from 'process';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,18 +8,18 @@ import { BehaviorSubject } from 'rxjs';
 export class ContactService {
 
   dbContacts = [
-    {first: 'Steve', last: 'Jobs', isFav: true},
-    {first: 'Bill', last: 'Gates', isFav: false},
-    {first: 'Jeff', last: 'Bezos', isFav: false},
-    {first: 'Tim', last: 'Cook', isFav: true},
-    {first: 'Elon', last: 'Musk', isFav: false},
-    {first: 'Mark', last: 'Zuckerberg', isFav: false},
-    {first: 'Jack', last: 'Dorsey', isFav: false},
-    {first: 'Sundar', last: 'Pichai', isFav: false},
-    {first: 'Daniel', last: 'Schulman', isFav: false},
-    {first: 'Susan', last: 'Wojcicki', isFav: false},
-    {first: 'Reed', last: 'Hastings', isFav: false},
-    {first: 'Michael', last: 'Dell', isFav: false}
+    {first: 'Steve', last: 'Jobs', email: 'stevejobs@apple.com', mobile: '(248) 123-7654', isFav: true},
+    {first: 'Bill', last: 'Gates', email: 'billgates@microsoft.com', mobile: '(543) 432-7644', isFav: false},
+    {first: 'Jeff', last: 'Bezos', email: 'jeffbezos@amazon.com', mobile: '(524) 378-6675', isFav: false},
+    {first: 'Tim', last: 'Cook', email: 'tinycookie@apple.com', mobile: '(234) 743-5553', isFav: true},
+    {first: 'Elon', last: 'Musk', email: 'justme@musk.com', mobile: '(435) 346-7434', isFav: false},
+    {first: 'Mark', last: 'Zuckerberg', email: 'markus@fessebook.com', mobile: '(654) 478-8765', isFav: false},
+    {first: 'Jack', last: 'Dorsey', email: 'jacky@bluebird.com', mobile: '(435) 234-5633', isFav: false},
+    {first: 'Sundar', last: 'Pichai', email: 'sundarpichai@googleme.com', mobile: '(746) 875-2345', isFav: false},
+    {first: 'Daniel', last: 'Schulman', email: 'dadaschul@paidme.com', mobile: '(435) 563-5342', isFav: false},
+    {first: 'Susan', last: 'Wojcicki', email: 'susu@adadadadad.com', mobile: '(643) 345-0865', isFav: false},
+    {first: 'Reed', last: 'Hastings', email: 'reereed@ichangedyourlife.com', mobile: '(354) 467-0754', isFav: false},
+    {first: 'Michael', last: 'Dell', email: 'dell@dell.dell', mobile: '(754) 245-4352', isFav: false}
   ];
 
   // fav$ est un objet de type Subject

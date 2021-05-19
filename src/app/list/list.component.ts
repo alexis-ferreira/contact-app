@@ -41,6 +41,9 @@ export class ListComponent implements OnInit {
     // array.splice(index, 1) nombre d'élément à suprimer
     this.contactService.getContacts().splice(index, 1);
     this.contacts = [...this.contactService.getContacts()];
+    // On récupère le nouveau tableau des favoris
+    let favoris = this.contactService.getFav();
+    this.contactService.fav$.next(favoris);
     }
   }
 

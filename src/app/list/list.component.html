@@ -12,7 +12,7 @@
 <input type="text" class="form-control" placeholder="Rechercher un contact" #searchBar (keyup)="searchContact(searchBar.value)">
 
 <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between" *ngFor="let contact of contacts">
+    <li *ngFor="let contact of contacts; let i=index" [routerLink]="['detail', i]" class="list-group-item d-flex justify-content-between">
         <!-- BLOC GAUCHE -->
         <span>
             <button (click)='deleteContact(contact)' class="btn btn-light">
